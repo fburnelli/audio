@@ -1,0 +1,11 @@
+###ffmpeg
+ffmpeg -i 0.webm 0.wav
+ffmpeg -i 1.webm 1.wav
+ffmpeg -i 0.wav -i 1.wav -filter_complex "[0:a][1:a]join=inputs=2:channel_layout=stereo[a]" -map "[a]" merged_conversation.wav
+
+####ffplay: also show spectrogram while play
+ffplay file.wav
+
+####ffprobe
+ffprobe -v quiet -print_format json -show_format -show_streams conv_id_9a548943-8587-431b-aed5-6995a61a7be1.wav > ffbrobe_out.json
+
